@@ -21,6 +21,13 @@ public class Main {
 // *getBucketCount(7.25, 4.3, 2.35); → should return 14 since the wall area is 31.175, and a single bucket can cover an area of 2.35.
         testGetBucketCount(7.25, 4.3, 2.35, 14);
 
+// *getBucketCount(3.4, 1.5); → should return 3 since the area is 3.4 and a single bucket can cover an area of 1.5
+        testGetBucketCount(3.4, 1.5, 3);
+// *getBucketCount(6.26, 2.2); → should return 3 since the wall area is 6.26 and a single bucket can cover an area of 2.2.
+        testGetBucketCount(6.26,2.2,3);
+// *getBucketCount(3.26, 0.75); → should return 5 since the wall area is 3.26, and a single bucket can cover an area of 0.75 .
+        testGetBucketCount(3.26,0.75, 5);
+
     }
 
     public static void testGetBucketCount(double width, double height, double areaPerBucket, int extraBuckets, int expected){
@@ -35,6 +42,14 @@ public class Main {
         String passFail = (result == expected) ? "PASS": "FAIL";
         System.out.printf("%s getBucketCount(%f, %f, %f) returned %d, expected %d %n",
                 passFail, width, height, areaPerBucket, result, expected);
+    }
+
+    public static void testGetBucketCount(double area, double areaPerBucket, int expected) {
+        int result = PaintJob.getBucketCount(area, areaPerBucket);
+        String passFail = (result == expected) ? "PASS": "FAIL";
+        System.out.printf("%s getBucketCount(%f, %f) returned %d, expected %d %n",
+                passFail, area, areaPerBucket, result, expected);
+
     }
 
 
